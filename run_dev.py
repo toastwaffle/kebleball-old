@@ -1,11 +1,11 @@
+#! /usr/bin/env python
 import os, sys
 
 dir = os.getcwd()
 
-activate_this = '/'.join(dir,'bin/activate_this.py')
-execfile(activate_this, dict(__file__=activate_this))
-
-sys.path.append(0, dir)
+activate_this = os.path.join(dir,'bin/activate_this.py')
+with open(activate_this, 'r') as fh:
+    exec(fh.read()+'\n', dict(__file__=activate_this), sys._getframe(0).f_locals)
 
 from tickets import app
 
