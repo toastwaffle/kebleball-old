@@ -1,13 +1,15 @@
 """
-database.py
+database
 
-Contains classes for database table objects
+Manages access to database
 """
+
+__all__ = ['db', 'Affiliation', 'Announcement', 'Battels_auto', 'Battels_manual',
+           'College', 'Log', 'Statistic', 'Ticket', 'User', 'Voucher', 'Waiting']
 
 from flask.ext.sqlalchemy import SQLAlchemy
 from tickets import app
 from tickets.helpers import *
-import bcrypt
 
 db = SQLAlchemy(app)
 
@@ -21,3 +23,4 @@ from statistic import Statistic
 from ticket import Ticket
 from user import User
 from voucher import Voucher
+from waiting import Waiting
